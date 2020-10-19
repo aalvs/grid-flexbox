@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+$color-dark: #141414;
+$color-white: #fff;
+$color-yellow: #fdc500;
+
+:root {
+    --gap-size: 1.6rem;
+}
+
+@mixin grid () {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-gap: var(--gap-size);
+    width: 90%;
+    max-width: 1366px;
+}
+
+@mixin flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1366px;
+}
+
+div.flexbox {
+    .card-item {
+        margin: 10px;
+    }
+}
+
+.container {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .title {
+        padding: 32px 0;
+
+        h1 {
+            font-size: 42px;
+            letter-spacing: 2px;
+            color: $color-white;
+        }
+    }
+}
+
+.grid {
+    @include grid();
+}
+
+.flexbox {
+    @include flexbox();
+}
+
+.card-item {
+
+    .content-item {
+        text-align: center;
+
+        img {
+            width: 90%;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: $color-white;
+        }
+    }
+}
+
+.card-item:hover {
+
+    .content-item {
+
+        img {
+            border: 1px solid $color-yellow;
+            opacity: 0.8;
+        }
+
+        p {
+            color: $color-yellow;
+        }
+    }
+}
+
+
+html, body {
+    background-color: $color-dark;
+    font-family: 'Bebas Neue', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+a, a:hover, a:link, a:visited {
+    text-decoration: none;
+    cursor: pointer;
+}
