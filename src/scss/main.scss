@@ -5,39 +5,54 @@ $color-white: #fff;
 $color-yellow: #fdc500;
 
 :root {
-    --gap-size: 1.6rem;
+    --gap-size: 1em;
 }
 
 @mixin grid () {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: var(--gap-size);
-    width: 90%;
-    max-width: 1366px;
+    max-width: 1000px;
 }
 
 @mixin flexbox {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     flex-wrap: wrap;
-    width: 90%;
-    max-width: 1366px;
-}
-
-div.flexbox {
-    .card-item {
-        margin: 10px;
-    }
+    max-width: 1000px;
 }
 
 .container {
-    padding: 3rem;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 2em 0;
+
+    .top { 
+        margin-bottom: 1em;
+        width: 1000px;
+
+        a {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        ion-icon {
+            width: 28px;
+            height: 28px;
+            color: $color-yellow;
+            margin-right: 1em;
+        }
+
+        p {
+            color: $color-white;
+            font-size: 1.2em;
+        }
+    }
 
     .title {
         padding: 32px 0;
@@ -47,6 +62,38 @@ div.flexbox {
             letter-spacing: 2px;
             color: $color-white;
         }
+    }
+
+    .logo {
+        padding: 1em 0;
+    }
+}
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+
+
+    .item-box {
+        display: flex;
+        justify-content: center;
+        width: 250px;
+        background-image: -webkit-gradient(linear,left top,right top,color-stop(5%,#333),color-stop(95%,#181818));
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            padding: 1em 0em 1em 0em;
+            color: $color-yellow;
+            width: 100%;
+        }
+
+        .btn:hover {
+            color: #000;
+            background-color: $color-yellow;
+        }
+
     }
 }
 
@@ -58,17 +105,23 @@ div.flexbox {
     @include flexbox();
 }
 
+.flexbox > .card-item {
+    width: 23%;
+    margin: 0em 1em 1em 0em;
+}
+
 .card-item {
 
     .content-item {
         text-align: center;
 
         img {
-            width: 90%;
+            width: 100%;
+            border: 1px solid transparent;
         }
 
         p {
-            margin-top: 10px;
+            margin-bottom: 1em;
             font-size: 24px;
             letter-spacing: 2px;
             color: $color-white;
